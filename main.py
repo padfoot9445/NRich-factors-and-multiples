@@ -122,10 +122,12 @@ def solve(asolution: Solution):
     bsolution = []
     used = set()
     while current < len(flattened):
-        if len(flattened[current][1]) == 0: return None
+        if len(flattened[current][1]) == 0: print(1); return None
         elif flattened[current][0] == len(flattened[current][1]): #equals, as the left is the index but the right is the length
             #if exceeded the end of the first cell, there is no solution
-            if current == 0: return None
+            if current == 0:
+                print(flattened[current])
+                return None
             #reset offset
             flattened[current][0] = 0
             used.remove(bsolution.pop())
@@ -162,8 +164,7 @@ def solve(asolution: Solution):
 generator = generate_all_valid_solutions()
 real_start_time = time()
 with open("testOutput.txt", "a") as output:
-    for _ in range(6):
-        solution = generator.__next__()
+    for solution in generator:
         start_time = time()
         x = solve(solution[2])
         print(time() - start_time, file=output)
