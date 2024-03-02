@@ -47,6 +47,9 @@ __valid_square_return_list: Solution = [[set() for i in range(5)] for e in range
 times = 0
 def generate_valid_squares(vertical_tags: tuple[Tag], horizontal_tags: tuple[Tag]) -> Solution:
     """Returns a 2d-list. Sublists are rows(access would be list[rowno][columnno])"""
+    print(vertical_tags)
+    print(horizontal_tags)
+    print("*")
     global times
     times += 1
     for row_no, row_tag in enumerate(vertical_tags): #tags on the vertical span an entire row, row_no is zero-indexed row number
@@ -162,8 +165,10 @@ def solve(asolution: Solution):
 
 # print(solve(generate_all_valid_solutions().__next__()[2]))
 generator = generate_all_valid_solutions()
+list(generator)
+exit()
 real_start_time = time()
-with open("testOutput.txt", "a") as output:
+with open("final_output.txt", "a") as output:
     for solution in generator:
         start_time = time()
         x = solve(solution[2])
