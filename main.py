@@ -165,8 +165,6 @@ def solve(asolution: Solution):
 
 # print(solve(generate_all_valid_solutions().__next__()[2]))
 generator = generate_all_valid_solutions()
-list(generator)
-exit()
 real_start_time = time()
 with open("final_output.txt", "a") as output:
     for solution in generator:
